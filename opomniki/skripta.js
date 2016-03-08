@@ -30,7 +30,17 @@ window.addEventListener('load', function() {
 			var opomnik = opomniki[i];
 			var casovnik = opomnik.querySelector("span");
 			var cas = parseInt(casovnik.innerHTML);
-	
+			
+			if(cas==0){
+				var naziv_opomnika = opomnik.querySelector(".naziv_opomnika").innerHTML;
+				alert("Opomnik!\n\n Zadolžitev '" + naziv_opomnika + "' je potekla!");
+				document.querySelector("#opomniki").removeChild(opomnik);
+				
+			}
+			else{
+				casovnik.innerHTML = cas - 1;
+				
+			}
 			//TODO: 
 			// - če je čas enak 0, izpiši opozorilo "Opomnik!\n\nZadolžitev NAZIV_OPOMNIK je potekla!"
 			// - sicer zmanjšaj čas za 1 in nastavi novo vrednost v časovniku
